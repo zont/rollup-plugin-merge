@@ -33,7 +33,7 @@ module.exports = ({ input, output, watch = false, verbose = false }) => {
 
       const files = await Promise.all(input.map(i => readFileAsync(i)));
 
-      await writeFileAsync(output, merge(...files.map(i => JSON.parse(i))));
+      await writeFileAsync(output, JSON.stringify(merge(...files.map(i => JSON.parse(i))), null, '  '));
 
       if (verbose) {
         console.log('[MERGE][COMPLETE]'.yellow, output);

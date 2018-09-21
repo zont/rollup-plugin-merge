@@ -29,10 +29,9 @@ const createDirIfNotExist = to => {
 module.exports = ({ input, output, watch = false, verbose = false }) => {
   const run = async () => {
     try {
-      createDirIfNotExist(output);
-
       const files = await Promise.all(input.map(i => readFileAsync(i)));
 
+      createDirIfNotExist(output);
       await writeFileAsync(output, JSON.stringify(merge(...files.map(i => JSON.parse(i))), null, '  '));
 
       if (verbose) {

@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-merge",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Rollup plugin to merge JSON files",
   "main": "index.js",
   "bin": {

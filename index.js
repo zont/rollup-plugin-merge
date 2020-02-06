@@ -26,13 +26,15 @@ const createDirIfNotExist = to => {
   });
 };
 
-module.exports = ({ input, output, watch = false, verbose = false }) => {
+module.exports = ({ input, output, watch = false, verbose = false, recursive = false }) => {
   const run = async () => {
     try {
       const files = await Promise.all(input.map(i => readFileAsync(i)));
 
+      const mergeFn = recursive ? merge.recursive : merge;
+
       createDirIfNotExist(output);
-      await writeFileAsync(output, JSON.stringify(merge(...files.map(i => JSON.parse(i))), null, '  '));
+      await writeFileAsync(output, JSON.stringify(mergeFn(...files.map(i => JSON.parse(i))), null, '  '));
 
       if (verbose) {
         console.log('[MERGE][COMPLETE]'.yellow, output);

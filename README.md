@@ -25,12 +25,14 @@ export default {
       input: ['src/1.json', 'src/2.json'],
       output: 'dist/config.json',
       verbose: true,
-      watch: true
+      watch: true,
+      recurisve: true,
     })
   ]
 };
 ```
 
 ### Options
+  - recursive (default is `false`). Enable/disable recursive merging
   - verbose (default is `false`). Enable/disable logging
   - watch (default is `false`). Enable/disable watching. If disabled then copy only on start

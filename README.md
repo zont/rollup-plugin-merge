@@ -27,6 +27,7 @@ export default {
       verbose: true,
       watch: true,
       recurisve: true,
+      prettify: true
     })
   ]
 };
@@ -36,3 +37,4 @@ export default {
   - recursive (default is `false`). Enable/disable recursive merging
   - verbose (default is `false`). Enable/disable logging
   - watch (default is `false`). Enable/disable watching. If disabled then copy only on start
+  - prettify (default is `false`). Enable/disable prettify. If enabled then insert white space into the output JSON string for readability purposes
